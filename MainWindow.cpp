@@ -71,7 +71,7 @@ void MainWindow::setupUi()
 	//fmt.setAccum(true);
 #if (QT_VERSION >= QT_VERSION_CHECK(4, 7, 0))
 	int gl_major = 4, gl_minor = 3;
-	fmt.setProfile(QGLFormat::CoreProfile);
+	fmt.setProfile(QGLFormat::CompatibilityProfile);
 	fmt.setVersion(gl_major, gl_minor);
 #endif
 	//QGLFormat::setDefaultFormat(fmt);

@@ -99,9 +99,9 @@ void GfxBase::gfx_init_gl()
 	jds::print_glm_version();
 	jds::print_opengl_error();
 
-	prim_vert = new jds::shader((char *)"prim_render_v330.vert",
+	prim_vert = new jds::shader((char *)"../prim_render_v330.vert",
 		jds::VERT_SHADER);
-	prim_frag = new jds::shader((char *)"prim_render_v330.frag",
+	prim_frag = new jds::shader((char *)"../prim_render_v330.frag",
 		jds::FRAG_SHADER);
 	psp = new jds::shader_program();
 	psp->add_shader(prim_vert);
@@ -110,9 +110,9 @@ void GfxBase::gfx_init_gl()
 	psp->use();
 	psp->set_uniform((char *)"color", glm::vec4(1.0f));
 
-	wing_vert = new jds::shader((char *)"smooth_ads_v330.vert",
+	wing_vert = new jds::shader((char *)"../smooth_ads_v330.vert",
 		jds::VERT_SHADER);
-	wing_frag = new jds::shader((char *)"smooth_ads_v330.frag",
+	wing_frag = new jds::shader((char *)"../smooth_ads_v330.frag",
 		jds::FRAG_SHADER);
 	wsp = new jds::shader_program();
 	wsp->add_shader(wing_vert);
@@ -128,9 +128,9 @@ void GfxBase::gfx_init_gl()
 	wsp->set_uniform((char *)"Ks", glm::vec3(1.0f, 1.0f, 1.0f));
 	wsp->set_uniform((char *)"Kd", glm::vec3(1.0f, 1.0f, 1.0f));
 
-	s2_frag = new jds::shader((char*)"smooth_ads_twoside_v330.frag",
+	s2_frag = new jds::shader((char*)"../smooth_ads_twoside_v330.frag",
 		jds::FRAG_SHADER);
-	s2_vert = new jds::shader((char*)"smooth_ads_twoside_v330.vert",
+	s2_vert = new jds::shader((char*)"../smooth_ads_twoside_v330.vert",
 		jds::VERT_SHADER);
 	s2sp = new jds::shader_program();
 	s2sp->add_shader(s2_vert);
@@ -358,9 +358,15 @@ void GfxBase::load_files()
 {
 	sdata = new JdsVtkScalar();
 	sgfx = new JdsVtkScalarGfx(sdata);
+	
+#if defined(_MSC_VER) || defined(__MINGW32__) || defined(__MINGW64__)
+	data_root = string("d:/vtk_con");
+#else
+	data_root = string("/data/vtk_con");
+#endif
 
-	sdata->load_vtk((char *)"/data/vtk_con/q.0000100.vtk");
-	sdata->load_scalar_lazy((char *)"/data/vtk_con/q.0000100.lazy",
+	sdata->load_vtk((char *)(data_root + "/q.0000100.vtk").c_str());
+	sdata->load_scalar_lazy((char *)(data_root + "/q.0000100.lazy").c_str(),
 		sdata->point_count);
 	sdata->find_bounds();
 	sdata->print_bounds();
@@ -381,12 +387,6 @@ void GfxBase::load_files()
 	sl = new SeedLine();
 	slgfx = new SeedLineGfx(sl);
 	slgfx->update();
-
-#ifdef _MSC_VER
-	data_root = string("c:/vtk_con");
-#else
-	data_root = string("/data/vtk_con");
-#endif
 
 	dfw = new dragonfly_wing((char *)data_root.c_str());
 	dfw->load(100);

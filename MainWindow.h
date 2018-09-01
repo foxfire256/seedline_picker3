@@ -1,8 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QtGui/QMainWindow>
-#include "jds_opengl.hpp"
+#include <QMainWindow>
+//#include "jds_opengl.hpp"
 #include "GLWidget.h"
 #include <QTimer>
 #define GLM_FORCE_ONLY_XYZW

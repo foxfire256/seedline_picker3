@@ -5,6 +5,15 @@
 #include <cstdio>
 #include <string>
 
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QGridLayout>
+#include <QPushButton>
+#include <QWidget>
+#include <QLabel>
+#include <QLineEdit>
+#include <QComboBox>
+
 #ifdef _MSC_VER // M$ HACKS
 #pragma warning(disable : 4996) // crt is secure, disable the warning
 #define snprintf _snprintf_s

@@ -1,12 +1,6 @@
 #ifndef JDSVTKSCALAR_H
 #define JDSVTKSCALAR_H
 
-
-#ifdef _MSC_VER // M$ HACKS
-#pragma warning(disable : 4996) // crt is secure, disable the warning
-#define snprintf _snprintf_s
-#endif
-
 #include "jds_opengl.hpp"
 
 #define GLM_FORCE_ONLY_XYZW

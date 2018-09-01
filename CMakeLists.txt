@@ -45,14 +45,14 @@ if(MSVC)
 	set(LIBS ${LIBS} kernel32.lib ${OPENGL_LIBRARIES} ${GLEW_LIBS})
 	
 	set(BOOST_LIBS ${BOOST_LIBS}
-		optimized "C:\\vclibs\\vclibs\\lib\\libboost_program_options-vc141-mt-x64-1_67.lib"
-		debug "C:\\vclibs\\vclibs\\lib\\libboost_program_options-vc141-mt-gd-x64-1_67.lib")
+		optimized "C:\\vclibs\\vclibs\\lib\\libboost_program_options-vc141-mt-x64-1_68.lib"
+		debug "C:\\vclibs\\vclibs\\lib\\libboost_program_options-vc141-mt-gd-x64-1_68.lib")
 	set(BOOST_LIBS ${BOOST_LIBS}
-		optimized "C:\\vclibs\\vclibs\\lib\\libboost_system-vc141-mt-x64-1_67.lib"
-		debug "C:\\vclibs\\vclibs\\lib\\libboost_system-vc141-mt-gd-x64-1_67.lib")
+		optimized "C:\\vclibs\\vclibs\\lib\\libboost_system-vc141-mt-x64-1_68.lib"
+		debug "C:\\vclibs\\vclibs\\lib\\libboost_system-vc141-mt-gd-x64-1_68.lib")
 	set(BOOST_LIBS ${BOOST_LIBS}
-		optimized "C:\\vclibs\\vclibs\\lib\\libboost_filesystem-vc141-mt-x64-1_67.lib"
-		debug "C:\\vclibs\\vclibs\\lib\\libboost_filesystem-vc141-mt-gd-x64-1_67.lib")
+		optimized "C:\\vclibs\\vclibs\\lib\\libboost_filesystem-vc141-mt-x64-1_68.lib"
+		debug "C:\\vclibs\\vclibs\\lib\\libboost_filesystem-vc141-mt-gd-x64-1_68.lib")
 	
 	include_directories("C:\\vclibs\\vclibs\\include")
 	include_directories("C:\\Qt\\Qt5.11.1\\5.11.1\\msvc2017_64\\include")

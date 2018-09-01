@@ -99,9 +99,16 @@ void GfxBase::gfx_init_gl()
 	jds::print_glm_version();
 	jds::print_opengl_error();
 
-	prim_vert = new jds::shader((char *)"../prim_render_v330.vert",
+	std::string dir;
+#if defined(_MSC_VER) || defined(__MINGW32__) || defined(__MINGW64__)
+	dir = string("c:/dev/seedline_picker3/");
+#else
+	dir = string("");
+#endif
+
+	prim_vert = new jds::shader((char *)(dir + "prim_render_v330.vert").c_str(),
 		jds::VERT_SHADER);
-	prim_frag = new jds::shader((char *)"../prim_render_v330.frag",
+	prim_frag = new jds::shader((char *)(dir + "prim_render_v330.frag").c_str(),
 		jds::FRAG_SHADER);
 	psp = new jds::shader_program();
 	psp->add_shader(prim_vert);
@@ -110,9 +117,9 @@ void GfxBase::gfx_init_gl()
 	psp->use();
 	psp->set_uniform((char *)"color", glm::vec4(1.0f));
 
-	wing_vert = new jds::shader((char *)"../smooth_ads_v330.vert",
+	wing_vert = new jds::shader((char *)(dir + "smooth_ads_v330.vert").c_str(),
 		jds::VERT_SHADER);
-	wing_frag = new jds::shader((char *)"../smooth_ads_v330.frag",
+	wing_frag = new jds::shader((char *)(dir + "smooth_ads_v330.frag").c_str(),
 		jds::FRAG_SHADER);
 	wsp = new jds::shader_program();
 	wsp->add_shader(wing_vert);
@@ -128,9 +135,9 @@ void GfxBase::gfx_init_gl()
 	wsp->set_uniform((char *)"Ks", glm::vec3(1.0f, 1.0f, 1.0f));
 	wsp->set_uniform((char *)"Kd", glm::vec3(1.0f, 1.0f, 1.0f));
 
-	s2_frag = new jds::shader((char*)"../smooth_ads_twoside_v330.frag",
+	s2_frag = new jds::shader((char*)(dir + "smooth_ads_twoside_v330.frag").c_str(),
 		jds::FRAG_SHADER);
-	s2_vert = new jds::shader((char*)"../smooth_ads_twoside_v330.vert",
+	s2_vert = new jds::shader((char*)(dir + "smooth_ads_twoside_v330.vert").c_str(),
 		jds::VERT_SHADER);
 	s2sp = new jds::shader_program();
 	s2sp->add_shader(s2_vert);

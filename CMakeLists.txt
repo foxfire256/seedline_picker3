@@ -123,7 +123,7 @@ if(UNIX AND NOT APPLE)
 	set(BOOST_LIBS ${Boost_LIBRARIES})
 	
 	find_package(OpenGL)
-	set(LIBS ${LIBS} ${OPENGL_LIBRARIES} -lglew)
+	set(LIBS ${LIBS} ${OPENGL_LIBRARIES} -lGLEW)
 
 	find_package(Qt5Core)
 	find_package(Qt5Widgets)

@@ -9,7 +9,6 @@
 *.pdb
 s2d
 *.creator.user
-*.png
 *.autosave
 *.ttf
 error.txt
@@ -44,3 +43,4 @@ release/*
 build/*
 cmake-build-debug/*
 cmake-build-release/*
+CMakeLists.txt.user

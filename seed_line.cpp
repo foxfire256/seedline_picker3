@@ -1,4 +1,4 @@
-#include "SeedLine.h"
+#include "seed_line.h"
 #include <iostream>
 using std::cout;
 using std::cerr;
@@ -15,12 +15,12 @@ using std::ofstream;
 #endif
 
 //------------------------------------------------------------------------------
-SeedLine::SeedLine()
+seed_line::seed_line()
 {
 }
 
 //------------------------------------------------------------------------------
-SeedLine::~SeedLine()
+seed_line::~seed_line()
 {
 }
 
@@ -29,7 +29,7 @@ SeedLine::~SeedLine()
 // returns the interpolated position
 // calc_length() must have been run after the last point was added and before
 // is run
-vec3 SeedLine::find_pos(float parm)
+vec3 seed_line::find_pos(float parm)
 {
 	unsigned int n;
 
@@ -49,7 +49,7 @@ vec3 SeedLine::find_pos(float parm)
 }
 
 //------------------------------------------------------------------------------
-void SeedLine::calc_length()
+void seed_line::calc_length()
 {
 	length = 0.0f;
 	para.clear();
@@ -68,14 +68,14 @@ void SeedLine::calc_length()
 }
 
 //------------------------------------------------------------------------------
-void SeedLine::add(vec3 p, uvec3 i)
+void seed_line::add(vec3 p, uvec3 i)
 {
 	pos.push_back(p);
 	ind.push_back(i);
 }
 
 //------------------------------------------------------------------------------
-void SeedLine::clear()
+void seed_line::clear()
 {
 	pos.clear();
 	ind.clear();
@@ -84,7 +84,7 @@ void SeedLine::clear()
 //------------------------------------------------------------------------------
 // p is the VTK position data
 // ind needs to be already loaded for this to work
-void SeedLine::calc_pos_from_ind(vector<vector<vector<vec3> > > &p)
+void seed_line::calc_pos_from_ind(vector<vector<vector<vec3> > > &p)
 {
 	for(unsigned int n = 0; n < ind.size(); n++)
 	{
@@ -93,7 +93,7 @@ void SeedLine::calc_pos_from_ind(vector<vector<vector<vec3> > > &p)
 }
 
 //------------------------------------------------------------------------------
-void SeedLine::save(const char *filename)
+void seed_line::save(const char *filename)
 {
 	unsigned int *i, size = (unsigned int)ind.size() * 3;
 
@@ -114,13 +114,13 @@ void SeedLine::save(const char *filename)
 
 	out.close();
 
-	cout << "Saved seedline: " << filename << endl;
+	cout << "Saved seed_line: " << filename << endl;
 
 	delete [] i;
 }
 
 //------------------------------------------------------------------------------
-void SeedLine::save()
+void seed_line::save()
 {
 	time_t rawtime;
 	struct tm *timeinfo;
@@ -137,7 +137,7 @@ void SeedLine::save()
 
 	char filename[128];
 
-	snprintf(filename, 128, "seedline_%s.raw", ftime);
+	snprintf(filename, 128, "seed_line_%s.raw", ftime);
 
 	i = new unsigned int[size];
 
@@ -154,13 +154,13 @@ void SeedLine::save()
 
 	out.close();
 
-	cout << "Saved seedline: " << filename << endl;
+	cout << "Saved seed_line: " << filename << endl;
 
 	delete [] i;
 }
 
 //------------------------------------------------------------------------------
-void SeedLine::load(const char *filename)
+void seed_line::load(const char *filename)
 {
 	unsigned int *i, size;
 

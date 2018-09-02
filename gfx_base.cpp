@@ -1,4 +1,4 @@
-#include "GfxBase.h"
+#include "gfx_base.h"
 
 #include <iostream>
 #include <cstdlib>
@@ -24,7 +24,7 @@ using glm::ivec4;
 #endif
 
 //------------------------------------------------------------------------------
-GfxBase::GfxBase()
+gfx_base::gfx_base()
 {
 	framerate = frames = 0;
 
@@ -60,12 +60,12 @@ GfxBase::GfxBase()
 }
 
 //------------------------------------------------------------------------------
-GfxBase::~GfxBase()
+gfx_base::~gfx_base()
 {
 }
 
 //------------------------------------------------------------------------------
-void GfxBase::gfx_resize(int width, int height)
+void gfx_base::gfx_resize(int width, int height)
 {
 	win_w = width;
 	win_h = height;
@@ -91,7 +91,7 @@ void GfxBase::gfx_resize(int width, int height)
 }
 
 //------------------------------------------------------------------------------
-void GfxBase::gfx_init_gl()
+void gfx_base::gfx_init_gl()
 {
 	jds::start_glew();
 	jds::print_opengl_info();
@@ -211,7 +211,7 @@ void GfxBase::gfx_init_gl()
 }
 
 //------------------------------------------------------------------------------
-void GfxBase::gfx_render()
+void gfx_base::gfx_render()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -241,7 +241,7 @@ void GfxBase::gfx_render()
 }
 
 //------------------------------------------------------------------------------
-void GfxBase::update_camera()
+void gfx_base::update_camera()
 {
 	double delta_t = timer->update();
 
@@ -361,10 +361,10 @@ void GfxBase::update_camera()
 }
 
 //------------------------------------------------------------------------------
-void GfxBase::load_files()
+void gfx_base::load_files()
 {
-	sdata = new JdsVtkScalar();
-	sgfx = new JdsVtkScalarGfx(sdata);
+	sdata = new jds_vtk_scalar();
+	sgfx = new jds_vtk_scalar_gfx(sdata);
 	
 #if defined(_MSC_VER) || defined(__MINGW32__) || defined(__MINGW64__)
 	data_root = string("d:/vtk_con");
@@ -391,8 +391,8 @@ void GfxBase::load_files()
 	sgfx->gen_wing_vao();
 	sgfx->gen_hh_vao();
 
-	sl = new SeedLine();
-	slgfx = new SeedLineGfx(sl);
+	sl = new seed_line();
+	slgfx = new seed_line_gfx(sl);
 	slgfx->update();
 
 	dfw = new dragonfly_wing((char *)data_root.c_str());
@@ -400,7 +400,7 @@ void GfxBase::load_files()
 }
 
 //------------------------------------------------------------------------------
-void GfxBase::udpate_cube_and_lines()
+void gfx_base::udpate_cube_and_lines()
 {
 	lines_data[0] = ppos.x;
 	lines_data[1] = ppos.y;
@@ -438,7 +438,7 @@ void GfxBase::udpate_cube_and_lines()
 }
 
 //------------------------------------------------------------------------------
-void GfxBase::print_cube_verts()
+void gfx_base::print_cube_verts()
 {
 	for(unsigned int i = 0; i < 24; i++)
 	{

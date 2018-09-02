@@ -1,4 +1,4 @@
-#include "JdsVtkFile.h"
+#include "jds_vtk_file.h"
 
 #include <cstdlib>
 #include <cstring>
@@ -16,13 +16,13 @@ using std::istringstream;
 using std::string;
 
 //------------------------------------------------------------------------------
-JdsVtkFile::JdsVtkFile()
+jds_vtk_file::jds_vtk_file()
 {
 }
 
 //------------------------------------------------------------------------------
 // converts raw data arrays to 3D vectors of type glm::vec3
-void JdsVtkFile::convert_to_vectors()
+void jds_vtk_file::convert_to_vectors()
 {
 	// allocate vector memory
 	// vector[x][y][z]
@@ -66,7 +66,7 @@ void JdsVtkFile::convert_to_vectors()
 
 //------------------------------------------------------------------------------
 // VTK binary file loader
-void JdsVtkFile::load_vtk(char *f)
+void jds_vtk_file::load_vtk(char *f)
 {
 	point_count = 0;
 
@@ -139,7 +139,7 @@ void JdsVtkFile::load_vtk(char *f)
 
 //------------------------------------------------------------------------------
 // VTK binary files are big endian by default
-void JdsVtkFile::change_endianess()
+void jds_vtk_file::change_endianess()
 {
 	for(unsigned int i = 0; i < point_count * 3; i++)
 	{
@@ -150,7 +150,7 @@ void JdsVtkFile::change_endianess()
 
 //------------------------------------------------------------------------------
 // swaps the bytes in a 4 byte block of memory starting at b
-void JdsVtkFile::byte_swap4(void *b)
+void jds_vtk_file::byte_swap4(void *b)
 {
 	char b1[4], b2[4];
 

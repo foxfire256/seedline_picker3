@@ -1,4 +1,4 @@
-#include "MainWindow.h"
+#include "main_window.h"
 #include <QtGui>
 #include <ctime>
 #include <QGLFormat>
@@ -21,7 +21,7 @@
 
 //------------------------------------------------------------------------------
 
-MainWindow::MainWindow(QWidget *parent)
+main_window::main_window(QWidget *parent)
 	: QMainWindow(parent)
 {
 	srand(time(NULL));
@@ -45,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 //------------------------------------------------------------------------------
 
-MainWindow::~MainWindow()
+main_window::~main_window()
 {
 
 }
@@ -53,7 +53,7 @@ MainWindow::~MainWindow()
 
 //------------------------------------------------------------------------------
 
-void MainWindow::setupUi()
+void main_window::setupUi()
 {
 	int gl_size = 400;
 
@@ -78,7 +78,7 @@ void MainWindow::setupUi()
 
 	mainWidget = new QWidget(this);
 
-	glWidget = new GLWidget(fmt, this);
+	glWidget = new gl_widget(fmt, this);
 	glWidget->setMinimumSize(gl_size, gl_size);
 	//glWidget->setMaximumSize(gl_size, gl_size);
 	//glWidget->setSizePolicy(QSizePolicy(QSizePolicy::Fixed,
@@ -208,7 +208,7 @@ void MainWindow::setupUi()
 }
 
 //------------------------------------------------------------------------------
-void MainWindow::updatePickerInfo(glm::uvec3 i, glm::vec3 p, glm::vec3 v)
+void main_window::updatePickerInfo(glm::uvec3 i, glm::vec3 p, glm::vec3 v)
 {
 	QString s;
 
@@ -226,7 +226,7 @@ void MainWindow::updatePickerInfo(glm::uvec3 i, glm::vec3 p, glm::vec3 v)
 }
 
 //------------------------------------------------------------------------------
-void MainWindow::updateCamera(glm::vec3 cam)
+void main_window::updateCamera(glm::vec3 cam)
 {
 	QString s;
 	camxLbl->setText(s.number(cam.x));
@@ -235,13 +235,13 @@ void MainWindow::updateCamera(glm::vec3 cam)
 }
 
 //------------------------------------------------------------------------------
-void MainWindow::fixFocus()
+void main_window::fixFocus()
 {
 	glWidget->setFocus();
 }
 
 //------------------------------------------------------------------------------
-void MainWindow::updateFps(int fps)
+void main_window::updateFps(int fps)
 {
 	QString s;
 	fpsVal->setText(s.number(fps));

@@ -176,10 +176,10 @@ endif(NOT MSVC)
 set(MAIN_SOURCE
 	dragonfly_wing.cpp
 	dragonfly_wing.h
-	GfxBase.cpp
-	GfxBase.h
-	GLWidget.cpp
-	GLWidget.h
+	gfx_base.cpp
+	gfx_base.h
+	gl_widget.cpp
+	gl_widget.h
 	jds_counter.cpp
 	jds_counter.hpp
 	jds_opengl.cpp
@@ -188,21 +188,21 @@ set(MAIN_SOURCE
 	jds_shader.hpp
 	jds_shader_program.cpp
 	jds_shader_program.hpp
-	JdsVtkFile.cpp
-	JdsVtkFile.h
-	JdsVtkScalar.cpp
-	JdsVtkScalar.h
-	JdsVtkScalarFile.cpp
-	JdsVtkScalarFile.h
-	JdsVtkScalarGfx.cpp
-	JdsVtkScalarGfx.h
+	jds_vtk_file.cpp
+	jds_vtk_file.h
+	jds_vtk_scalar.cpp
+	jds_vtk_scalar.h
+	jds_vtk_scalar_file.cpp
+	jds_vtk_scalar_file.h
+	jds_vtk_scalar_gfx.cpp
+	jds_vtk_scalar_gfx.h
 	main.cpp
-	MainWindow.cpp
-	MainWindow.h
-	SeedLine.cpp
-	SeedLine.h
-	SeedLineGfx.cpp
-	SeedLineGfx.h
+	main_window.cpp
+	main_window.h
+	seed_line.cpp
+	seed_line.h
+	seed_line_gfx.cpp
+	seed_line_gfx.h
 )
 
 

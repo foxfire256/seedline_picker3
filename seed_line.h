@@ -1,5 +1,5 @@
-#ifndef SEEDLINE_H
-#define SEEDLINE_H
+#ifndef seed_line_H
+#define seed_line_H
 
 #include <vector>
 using std::vector;
@@ -8,11 +8,11 @@ using std::vector;
 using glm::vec3;
 using glm::uvec3;
 
-class SeedLine
+class seed_line
 {
 public:
-	SeedLine();
-	~SeedLine();
+	seed_line();
+	~seed_line();
 
 	void add(vec3 p, uvec3 i);
 	void save();
@@ -32,4 +32,4 @@ private:
 	vector<float> para;
 };
 
-#endif // SEEDLINE_H
+#endif // seed_line_H

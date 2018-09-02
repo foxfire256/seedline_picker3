@@ -1,4 +1,4 @@
-#include "GLWidget.h"
+#include "gl_widget.h"
 
 #ifdef _MSC_VER // M$ HACKS
 #pragma warning(disable : 4996) // crt is secure, disable the warning
@@ -6,7 +6,7 @@
 #endif
 
 //------------------------------------------------------------------------------
-GLWidget::GLWidget(const QGLFormat & format, QWidget *parent) :
+gl_widget::gl_widget(const QGLFormat & format, QWidget *parent) :
 	QGLWidget(format, parent)
 {
 	mouse.lmb = mouse.mmb = mouse.rmb = 0;
@@ -19,14 +19,14 @@ GLWidget::GLWidget(const QGLFormat & format, QWidget *parent) :
 }
 
 //------------------------------------------------------------------------------
-GLWidget::~GLWidget()
+gl_widget::~gl_widget()
 {
 
 }
 
 //------------------------------------------------------------------------------
 // this is automatically called once when the program starts
-void GLWidget::initializeGL()
+void gl_widget::initializeGL()
 {
 	gfx_init_gl();
 
@@ -36,7 +36,7 @@ void GLWidget::initializeGL()
 
 //------------------------------------------------------------------------------
 // this redraws the contents of the opengl widget
-void GLWidget::paintGL()
+void gl_widget::paintGL()
 {
 	update_camera();
 	gfx_render();
@@ -44,13 +44,13 @@ void GLWidget::paintGL()
 
 //------------------------------------------------------------------------------
 // this is called when the widget is resized
-void GLWidget::resizeGL(int width, int height)
+void gl_widget::resizeGL(int width, int height)
 {
 	gfx_resize(width, height);
 }
 
 //------------------------------------------------------------------------------
-void GLWidget::updateFramerate()
+void gl_widget::updateFramerate()
 {
 	framerate = frames;
 	frames = 0;
@@ -63,7 +63,7 @@ void GLWidget::updateFramerate()
 
 //------------------------------------------------------------------------------
 
-void GLWidget::mousePressEvent(QMouseEvent * event)
+void gl_widget::mousePressEvent(QMouseEvent * event)
 {
 	switch(event->button())
 	{
@@ -91,7 +91,7 @@ void GLWidget::mousePressEvent(QMouseEvent * event)
 
 //------------------------------------------------------------------------------
 
-void GLWidget::mouseReleaseEvent(QMouseEvent * event)
+void gl_widget::mouseReleaseEvent(QMouseEvent * event)
 {
 	switch(event->button())
 	{
@@ -119,7 +119,7 @@ void GLWidget::mouseReleaseEvent(QMouseEvent * event)
 
 //------------------------------------------------------------------------------
 
-void GLWidget::mouseMoveEvent(QMouseEvent * event)
+void gl_widget::mouseMoveEvent(QMouseEvent * event)
 {
 	mouse.x = event->x();
 	mouse.y = event->y();
@@ -150,7 +150,7 @@ void GLWidget::mouseMoveEvent(QMouseEvent * event)
 
 //------------------------------------------------------------------------------
 
-void GLWidget::mouseDoubleClickEvent(QMouseEvent * event)
+void gl_widget::mouseDoubleClickEvent(QMouseEvent * event)
 {
 	// pass to the default event handler
 	QGLWidget::mouseDoubleClickEvent(event);
@@ -158,7 +158,7 @@ void GLWidget::mouseDoubleClickEvent(QMouseEvent * event)
 
 //------------------------------------------------------------------------------
 
-void GLWidget::keyPressEvent(QKeyEvent *event)
+void gl_widget::keyPressEvent(QKeyEvent *event)
 {
 	switch(event->key())
 	{
@@ -221,7 +221,7 @@ void GLWidget::keyPressEvent(QKeyEvent *event)
 
 //------------------------------------------------------------------------------
 
-void GLWidget::keyReleaseEvent(QKeyEvent *event)
+void gl_widget::keyReleaseEvent(QKeyEvent *event)
 {
 	switch(event->key())
 	{

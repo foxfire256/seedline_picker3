@@ -1,9 +1,9 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef main_window_H
+#define main_window_H
 
 #include <QMainWindow>
 //#include "jds_opengl.hpp"
-#include "GLWidget.h"
+#include "gl_widget.h"
 #include <QTimer>
 #define GLM_FORCE_ONLY_XYZW
 #include <glm/glm.hpp>
@@ -18,16 +18,16 @@ class QLabel;
 class QLineEdit;
 class QComboBox;
 
-class MainWindow : public QMainWindow
+class main_window : public QMainWindow
 {
 	Q_OBJECT
 
 public:
-	MainWindow(QWidget *parent = 0);
-	~MainWindow();
+	main_window(QWidget *parent = 0);
+	~main_window();
 
 private:
-	GLWidget *glWidget;
+	gl_widget *glWidget;
 	QTimer *gfx_timer;
 	QWidget *mainWidget;
 	QHBoxLayout *mainLayout;
@@ -48,4 +48,4 @@ public slots:
 	void updatePickerInfo(glm::uvec3 i, glm::vec3 p, glm::vec3 v);
 };
 
-#endif // MAINWINDOW_H
+#endif // main_window_H

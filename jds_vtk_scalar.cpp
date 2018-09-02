@@ -13,10 +13,10 @@ using std::istringstream;
 #include <string>
 using std::string;
 
-#include "JdsVtkScalar.h"
+#include "jds_vtk_scalar.h"
 
 //------------------------------------------------------------------------------
-JdsVtkScalar::JdsVtkScalar()
+jds_vtk_scalar::jds_vtk_scalar()
 {
 	point_count = 0;
 	dim = uvec3(0);
@@ -28,7 +28,7 @@ JdsVtkScalar::JdsVtkScalar()
 }
 
 //------------------------------------------------------------------------------
-JdsVtkScalar::~JdsVtkScalar()
+jds_vtk_scalar::~jds_vtk_scalar()
 {
 	point_count = 0;
 	dim = uvec3(0);
@@ -39,7 +39,7 @@ JdsVtkScalar::~JdsVtkScalar()
 }
 
 //------------------------------------------------------------------------------
-void JdsVtkScalar::print_debug_file()
+void jds_vtk_scalar::print_debug_file()
 {
 	FILE *f = fopen("debug.txt", "w");
 
@@ -55,7 +55,7 @@ void JdsVtkScalar::print_debug_file()
 //------------------------------------------------------------------------------
 // this assumes a rectangular, structured grid
 // this is a 3d bisection method
-void JdsVtkScalar::find_nearest_index(vec3 loc, uvec3 &ind)
+void jds_vtk_scalar::find_nearest_index(vec3 loc, uvec3 &ind)
 {
 	uvec3 i, delta;
 	int i_done = 0, j_done = 0, k_done = 0;
@@ -144,7 +144,7 @@ void JdsVtkScalar::find_nearest_index(vec3 loc, uvec3 &ind)
 //------------------------------------------------------------------------------
 // finds the points in the flow that are border_w from the wing
 // TODO: maybe tweak the check boundaries part of this a bit
-void JdsVtkScalar::calc_border_points(unsigned int border_w)
+void jds_vtk_scalar::calc_border_points(unsigned int border_w)
 {
 	vector<vector<vector<GLbyte> > > bx, by, bz;
 
@@ -268,7 +268,7 @@ void JdsVtkScalar::calc_border_points(unsigned int border_w)
 //------------------------------------------------------------------------------
 // generates a vertex array for all cubes in the wing
 // the vertices are meant to be drawn as lines
-void JdsVtkScalar::calc_cube_verts()
+void jds_vtk_scalar::calc_cube_verts()
 {
 	unsigned int wing_point_count = 0, verts_per_point = 12 * 2;
 
@@ -315,7 +315,7 @@ void JdsVtkScalar::calc_cube_verts()
 }
 
 //------------------------------------------------------------------------------
-void JdsVtkScalar::convert_deltas_to_cubes()
+void jds_vtk_scalar::convert_deltas_to_cubes()
 {
 	// allocate cube verts memory
 	cv_per_point = 8;
@@ -433,7 +433,7 @@ void JdsVtkScalar::convert_deltas_to_cubes()
 //------------------------------------------------------------------------------
 // finds the position deltas in each dimension for each point
 // this will be used for drawing boxes at each point
-void JdsVtkScalar::calc_pos_deltas()
+void jds_vtk_scalar::calc_pos_deltas()
 {
 	// allocate vector memory
 	// vector[x][y][z]
@@ -583,9 +583,9 @@ void JdsVtkScalar::calc_pos_deltas()
 
 //------------------------------------------------------------------------------
 // converts raw data arrays to 3D vectors of type glm::vec3
-void JdsVtkScalar::convert_scalars_to_vectors()
+void jds_vtk_scalar::convert_scalars_to_vectors()
 {
-	JdsVtkFile::convert_to_vectors();
+	jds_vtk_file::convert_to_vectors();
 
 	// allocate vector memory
 	// vector[x][y][z]
@@ -622,7 +622,7 @@ void JdsVtkScalar::convert_scalars_to_vectors()
 
 //------------------------------------------------------------------------------
 // finds the bounds of the entire data set and just the wing
-void JdsVtkScalar::find_bounds()
+void jds_vtk_scalar::find_bounds()
 {
 	all_min = vec3((GLfloat)FLT_MAX);
 	wing_min = vec3((GLfloat)FLT_MAX);
@@ -676,7 +676,7 @@ void JdsVtkScalar::find_bounds()
 }
 
 //------------------------------------------------------------------------------
-void JdsVtkScalar::print_bounds()
+void jds_vtk_scalar::print_bounds()
 {
 	printf("all min (%f, %f, %f)\n", all_min.x, all_min.y, all_min.z);
 	printf("all max (%f, %f, %f)\n", all_max.x, all_max.y, all_max.z);

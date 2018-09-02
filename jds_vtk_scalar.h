@@ -1,5 +1,5 @@
-#ifndef JDSVTKSCALAR_H
-#define JDSVTKSCALAR_H
+#ifndef jds_vtk_scalar_H
+#define jds_vtk_scalar_H
 
 #include "jds_opengl.hpp"
 
@@ -10,12 +10,12 @@ using glm::uvec3;
 #include <vector>
 using std::vector;
 
-#include "JdsVtkFile.h"
-#include "JdsVtkScalarFile.h"
+#include "jds_vtk_file.h"
+#include "jds_vtk_scalar_file.h"
 
 //------------------------------------------------------------------------------
 // this was designed for ease of use at the expense of lots of memory
-class JdsVtkScalar : public JdsVtkFile, public JdsVtkScalarFile
+class jds_vtk_scalar : public jds_vtk_file, public jds_vtk_scalar_file
 {
 public:
 	// data bounds
@@ -40,8 +40,8 @@ public:
 
 	vector<unsigned int> cube_indicies;
 
-	JdsVtkScalar();
-	~JdsVtkScalar();
+	jds_vtk_scalar();
+	~jds_vtk_scalar();
 
 	void find_bounds();
 	void print_bounds();

@@ -1,22 +1,22 @@
-#ifndef SEEDLINEGFX_H
-#define SEEDLINEGFX_H
+#ifndef seed_line_gfx_H
+#define seed_line_gfx_H
 
-#include "SeedLine.h"
+#include "seed_line.h"
 #include "jds_opengl.hpp"
 
-class SeedLineGfx
+class seed_line_gfx
 {
 public:
-	SeedLineGfx(SeedLine *sl_in, unsigned int vert_max_in = 32);
-	~SeedLineGfx();
+	seed_line_gfx(seed_line *sl_in, unsigned int vert_max_in = 32);
+	~seed_line_gfx();
 
 	void update();
 	void draw();
 
 private:
-	SeedLine *sl;
+	seed_line *sl;
 	GLuint vao, vbo_vert, vert_count, vert_count_max;
 	GLfloat *sl_data;
 };
 
-#endif // SEEDLINEGFX_H
+#endif // seed_line_gfx_H

@@ -1,5 +1,5 @@
-#ifndef JDSVTKFILE_H
-#define JDSVTKFILE_H
+#ifndef jds_vtk_file_H
+#define jds_vtk_file_H
 
 #include "jds_opengl.hpp"
 
@@ -10,7 +10,7 @@ using glm::vec3;
 #include <vector>
 using std::vector;
 
-class JdsVtkFile
+class jds_vtk_file
 {
 public:
 	GLuint point_count;
@@ -23,7 +23,7 @@ public:
 	vector<vector<vector<vec3> > > p;
 	vector<vector<vector<vec3> > > v;
 
-	JdsVtkFile();
+	jds_vtk_file();
 
 	void load_vtk(char *f);
 	void convert_to_vectors();
@@ -33,4 +33,4 @@ private:
 	void byte_swap4(void *b);
 };
 
-#endif // JDSVTKFILE_H
+#endif // jds_vtk_file_H

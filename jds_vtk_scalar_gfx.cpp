@@ -1,8 +1,8 @@
-#include "JdsVtkScalarGfx.h"
+#include "jds_vtk_scalar_gfx.h"
 #include <glm/gtc/type_ptr.hpp>
 
 //------------------------------------------------------------------------------
-JdsVtkScalarGfx::JdsVtkScalarGfx(JdsVtkScalar *d_in)
+jds_vtk_scalar_gfx::jds_vtk_scalar_gfx(jds_vtk_scalar *d_in)
 {
 	d = d_in;
 }
@@ -10,7 +10,7 @@ JdsVtkScalarGfx::JdsVtkScalarGfx(JdsVtkScalar *d_in)
 
 //------------------------------------------------------------------------------
 // c is the index of the cube to draw
-void JdsVtkScalarGfx::get_single_cube_verts(glm::uvec3 c, GLfloat *data)
+void jds_vtk_scalar_gfx::get_single_cube_verts(glm::uvec3 c, GLfloat *data)
 {
 	for(unsigned int i = 0; i < d->cube_indicies.size(); i++)
 	{
@@ -21,7 +21,7 @@ void JdsVtkScalarGfx::get_single_cube_verts(glm::uvec3 c, GLfloat *data)
 }
 
 //------------------------------------------------------------------------------
-void JdsVtkScalarGfx::gen_hh_vao()
+void jds_vtk_scalar_gfx::gen_hh_vao()
 {
 	glGenVertexArrays(1, &hh_vao);
 	glBindVertexArray(hh_vao);
@@ -44,7 +44,7 @@ void JdsVtkScalarGfx::gen_hh_vao()
 }
 
 //------------------------------------------------------------------------------
-void JdsVtkScalarGfx::draw_hh_vao()
+void jds_vtk_scalar_gfx::draw_hh_vao()
 {
 	glBindVertexArray(hh_vao);
 	glVertexAttribPointer(0, 3, GL_FLOAT, 0, 0, 0);
@@ -70,7 +70,7 @@ void JdsVtkScalarGfx::draw_hh_vao()
 }
 
 //------------------------------------------------------------------------------
-void JdsVtkScalarGfx::gen_wing_vao()
+void jds_vtk_scalar_gfx::gen_wing_vao()
 {
 	glGenVertexArrays(1, &cube_vao);
 	glBindVertexArray(cube_vao);
@@ -84,7 +84,7 @@ void JdsVtkScalarGfx::gen_wing_vao()
 }
 
 //------------------------------------------------------------------------------
-void JdsVtkScalarGfx::draw_wing_cubes_vao()
+void jds_vtk_scalar_gfx::draw_wing_cubes_vao()
 {
 	glBindVertexArray(hh_vao);
 	glDrawArrays(GL_LINES, 0, d->cube_vert_count);

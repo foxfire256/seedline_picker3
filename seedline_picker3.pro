@@ -14,7 +14,7 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         MainWindow.cpp \
-    GLWidget.cpp \
+    gl_widget.cpp \
     JdsVtkScalar.cpp \
     JdsVtkScalarGfx.cpp \
     JdsVtkFile.cpp \
@@ -26,10 +26,10 @@ SOURCES += main.cpp\
     jds_opengl.cpp \
     jds_counter.cpp \
     dragonfly_wing.cpp \
-    GfxBase.cpp
+    gfx_base.cpp
 
 HEADERS  += MainWindow.h \
-    GLWidget.h \
+    gl_widget.h \
     JdsVtkScalar.h \
     JdsVtkScalarGfx.h \
     JdsVtkFile.h \
@@ -41,7 +41,7 @@ HEADERS  += MainWindow.h \
     jds_opengl.hpp \
     jds_counter.hpp \
     dragonfly_wing.h \
-    GfxBase.h
+    gfx_base.h
 
 unix:LIBS += -lrt -lGLEW -lGLU
 # bdver1 = bulldozer version 1

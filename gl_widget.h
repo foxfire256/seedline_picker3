@@ -1,5 +1,5 @@
-#ifndef GLWIDGET_H
-#define GLWIDGET_H
+#ifndef gl_widget_H
+#define gl_widget_H
 
 #include "jds_opengl.hpp"
 #include <QGLWidget>
@@ -7,7 +7,7 @@
 #include <QKeyEvent>
 #include <QMouseEvent>
 
-#include "GfxBase.h"
+#include "gfx_base.h"
 
 typedef struct JDS_MOUSE_DATA
 {
@@ -16,13 +16,13 @@ typedef struct JDS_MOUSE_DATA
 	int old_x, old_y, x, y, delta_x, delta_y;
 }JDS_MOUSE_DATA;
 
-class GLWidget : public QGLWidget, public GfxBase
+class gl_widget : public QGLWidget, public gfx_base
 {
 	Q_OBJECT
 public:
-	//GLWidget(QWidget *parent = 0);
-	GLWidget(const QGLFormat & format, QWidget *parent = 0);
-	~GLWidget();
+	//gl_widget(QWidget *parent = 0);
+	gl_widget(const QGLFormat & format, QWidget *parent = 0);
+	~gl_widget();
 
 private slots:
 	void updateFramerate();
@@ -54,4 +54,4 @@ private:
 	struct JDS_MOUSE_DATA mouse;
 };
 
-#endif // GLWIDGET_H
+#endif // gl_widget_H

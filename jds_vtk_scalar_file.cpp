@@ -1,4 +1,4 @@
-#include "JdsVtkScalarFile.h"
+#include "jds_vtk_scalar_file.h"
 
 #include <cstdlib>
 #include <cstring>
@@ -15,7 +15,7 @@ using std::istringstream;
 #include <string>
 using std::string;
 
-JdsVtkScalarFile::JdsVtkScalarFile()
+jds_vtk_scalar_file::jds_vtk_scalar_file()
 {
 }
 
@@ -25,7 +25,7 @@ JdsVtkScalarFile::JdsVtkScalarFile()
 //------------------------------------------------------------------------------
 // I couldn't get Paraview to like my VTK file with scalars so I just wrote the
 // raw data to three separate files, this loads them
-void JdsVtkScalarFile::load_scalar_lazy(char *file, unsigned int count)
+void jds_vtk_scalar_file::load_scalar_lazy(char *file, unsigned int count)
 {
 	string filename(file);
 	string fname = filename + ".scalars";
@@ -45,7 +45,7 @@ void JdsVtkScalarFile::load_scalar_lazy(char *file, unsigned int count)
 //------------------------------------------------------------------------------
 // I couldn't get Paraview to like my VTK file with scalars so I just wrote the
 // raw data to three separate files, this writes them
-void JdsVtkScalarFile::write_scalar_lazy(char *f, unsigned int count)
+void jds_vtk_scalar_file::write_scalar_lazy(char *f, unsigned int count)
 {
 	string filename(f);
 	string fname = filename + ".scalars";

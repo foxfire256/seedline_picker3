@@ -1,10 +1,10 @@
-#include "SeedLineGfx.h"
+#include "seed_line_gfx.h"
 #include "jds_opengl.hpp"
 #include <glm/gtc/type_ptr.hpp>
 #include <iostream>
 
 //------------------------------------------------------------------------------
-SeedLineGfx::SeedLineGfx(SeedLine *sl_in, unsigned int vert_max_in)
+seed_line_gfx::seed_line_gfx(seed_line *sl_in, unsigned int vert_max_in)
 {
 	sl = sl_in;
 	vert_count_max = vert_max_in;
@@ -24,18 +24,18 @@ SeedLineGfx::SeedLineGfx(SeedLine *sl_in, unsigned int vert_max_in)
 }
 
 //------------------------------------------------------------------------------
-SeedLineGfx::~SeedLineGfx()
+seed_line_gfx::~seed_line_gfx()
 {
 }
 
 //------------------------------------------------------------------------------
 // this should update the data
-void SeedLineGfx::update()
+void seed_line_gfx::update()
 {
 	// check to make sure we have enough memory
 	if(sl->pos.size() > vert_count_max)
 	{
-		std::cerr << "SeedLineGfx: not enough vertex data allocated!\n";
+		std::cerr << "seed_line_gfx: not enough vertex data allocated!\n";
 		return;
 	}
 
@@ -59,7 +59,7 @@ void SeedLineGfx::update()
 
 //------------------------------------------------------------------------------
 // draw using vao
-void SeedLineGfx::draw()
+void seed_line_gfx::draw()
 {
 	glBindVertexArray(vao);
 	glDrawArrays(GL_LINE_STRIP, 0, vert_count);

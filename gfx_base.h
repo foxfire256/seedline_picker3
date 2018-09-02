@@ -5,18 +5,18 @@
 #include <glm/glm.hpp>
 #include "jds_shader.hpp"
 #include "jds_shader_program.hpp"
-#include "JdsVtkScalar.h"
-#include "JdsVtkScalarGfx.h"
+#include "jds_vtk_scalar.h"
+#include "jds_vtk_scalar_gfx.h"
 #include "jds_counter.hpp"
-#include "SeedLine.h"
-#include "SeedLineGfx.h"
+#include "seed_line.h"
+#include "seed_line_gfx.h"
 #include "dragonfly_wing.h"
 
-class GfxBase
+class gfx_base
 {
 public:
-	GfxBase();
-	~GfxBase();
+	gfx_base();
+	~gfx_base();
 
 	void gfx_resize(int width, int height);
 	void gfx_init_gl();
@@ -41,10 +41,10 @@ protected:
 	glm::mat3 normal_matrix;
 
 	// model stuff
-	JdsVtkScalar *sdata;
-	JdsVtkScalarGfx *sgfx;
-	SeedLine *sl;
-	SeedLineGfx *slgfx;
+	jds_vtk_scalar *sdata;
+	jds_vtk_scalar_gfx *sgfx;
+	seed_line *sl;
+	seed_line_gfx *slgfx;
 	dragonfly_wing *dfw;
 	std::string data_root;
 

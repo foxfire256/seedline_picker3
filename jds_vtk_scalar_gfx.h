@@ -1,15 +1,15 @@
-#ifndef JDSVTKSCALARGFX_H
-#define JDSVTKSCALARGFX_H
+#ifndef jds_vtk_scalar_gfx_H
+#define jds_vtk_scalar_gfx_H
 
-#include "JdsVtkScalar.h"
+#include "jds_vtk_scalar.h"
 #include "jds_opengl.hpp"
 
-class JdsVtkScalarGfx
+class jds_vtk_scalar_gfx
 {
 public:
-	JdsVtkScalar *d;
+	jds_vtk_scalar *d;
 
-	JdsVtkScalarGfx(JdsVtkScalar *d_in);
+	jds_vtk_scalar_gfx(jds_vtk_scalar *d_in);
 	void gen_wing_vao();
 	void draw_wing_cubes_vao();
 	void gen_hh_vao();
@@ -20,4 +20,4 @@ private:
 	GLuint cube_vbo, hh_vbo, cube_vao, hh_vao;
 };
 
-#endif // JDSVTKSCALARGFX_H
+#endif // jds_vtk_scalar_gfx_H
